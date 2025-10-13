@@ -74,11 +74,11 @@
     /* Buttons Style */
     .plan-button {
       padding: 14px 22px;
-      font-size: 18px;               /* 🆙 Increased font size */
+      font-size: 18px;
       font-weight: bold;
       border: none;
       border-radius: 10px;
-      background-color: rgba(0, 0, 0, 0.3);
+      background-color: rgba(0, 0, 0, 0.5); /* ⬅️ Increased from 0.3 to 0.5 */
       color: #fff;
       cursor: pointer;
       transition: background 0.3s;
@@ -86,13 +86,13 @@
     }
 
     .plan-button:hover {
-      background-color: rgba(0, 0, 0, 0.5);
+      background-color: rgba(0, 0, 0, 0.7);
     }
 
     /* WhatsApp Floating Button */
     #whatsappBtn {
       position: fixed;
-      bottom: 20px;
+      bottom: 80px;  /* ⬅️ moved up from 20px */
       right: 20px;
       background-color: #25D366;
       border-radius: 50%;
@@ -122,7 +122,7 @@
     @media (max-width: 480px) {
       .plan-button {
         padding: 12px 18px;
-        font-size: 16px; /* slightly smaller on mobile */
+        font-size: 16px;
       }
       #tryJewelsBtn {
         left: 10px;
