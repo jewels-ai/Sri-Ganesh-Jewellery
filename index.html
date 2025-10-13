@@ -29,7 +29,7 @@
       transition: opacity 0.4s ease;
     }
 
-    /* Play Button Center Bottom */
+    /* Play Button */
     #toggleButton {
       position: absolute;
       bottom: 90px;
@@ -40,7 +40,7 @@
       z-index: 100;
     }
 
-    /* Left Button */
+    /* Try on Jewellery - bottom left */
     #tryJewelsBtn {
       position: absolute;
       bottom: 20px;
@@ -50,7 +50,7 @@
       z-index: 100;
     }
 
-    /* Center Button */
+    /* Savings Plan - bottom center */
     #savingsBtn {
       position: absolute;
       bottom: 20px;
@@ -61,17 +61,17 @@
       z-index: 100;
     }
 
-    /* Right Button */
+    /* 📍 Location - top right corner */
     #locationBtn {
       position: absolute;
-      bottom: 20px;
-      right: 90px; /* Keep it opposite WhatsApp */
+      top: 20px;
+      right: 20px;
       opacity: 0;
       pointer-events: none;
       z-index: 100;
     }
 
-    /* Buttons style */
+    /* Buttons Style */
     .plan-button {
       padding: 12px 18px;
       font-size: 14px;
@@ -216,6 +216,7 @@
       }
     });
 
+    // 🔒 Disable right click & dev tools
     document.addEventListener("contextmenu", e => e.preventDefault());
     document.addEventListener("keydown", e => {
       if (
