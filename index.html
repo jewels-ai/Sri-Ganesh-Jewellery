@@ -40,28 +40,28 @@
       z-index: 100;
     }
 
-    /* Button row container for Try & Savings */
-    .bottom-buttons {
+    /* Try on Jewellery - Bottom Left */
+    #tryJewelsBtn {
       position: absolute;
       bottom: 20px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      justify-content: center;
-      gap: 40px; /* 👈 spacing between Try on Jewellery and Savings Plan */
+      left: 20px;
       opacity: 0;
       pointer-events: none;
       z-index: 100;
     }
 
-    #tryJewelsBtn,
+    /* Savings Plan - Bottom Center */
     #savingsBtn {
-      position: relative;
-      opacity: 1; /* controlled by parent */
-      pointer-events: auto;
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      opacity: 0;
+      pointer-events: none;
+      z-index: 100;
     }
 
-    /* 📍 Location - top right corner */
+    /* Location - Top Right */
     #locationBtn {
       position: absolute;
       top: 20px;
@@ -73,11 +73,11 @@
 
     /* Buttons Style */
     .plan-button {
-      padding: 12px 18px;
-      font-size: 14px;
+      padding: 14px 22px;
+      font-size: 18px;               /* 🆙 Increased font size */
       font-weight: bold;
       border: none;
-      border-radius: 8px;
+      border-radius: 10px;
       background-color: rgba(0, 0, 0, 0.3);
       color: #fff;
       cursor: pointer;
@@ -118,14 +118,17 @@
       display: none !important;
     }
 
-    /* Responsive */
+    /* 📱 Responsive Adjustments */
     @media (max-width: 480px) {
-      .bottom-buttons {
-        gap: 15px;
-      }
       .plan-button {
-        padding: 10px 12px;
-        font-size: 13px;
+        padding: 12px 18px;
+        font-size: 16px; /* slightly smaller on mobile */
+      }
+      #tryJewelsBtn {
+        left: 10px;
+      }
+      #locationBtn {
+        right: 10px;
       }
     }
   </style>
@@ -135,21 +138,20 @@
   <!-- Logo -->
   <img src="logo.png" id="logo" alt="Logo">
 
-  <!-- Play Button -->
+  <!-- Play Video -->
   <button class="plan-button" id="toggleButton">▶️ Play Video</button>
 
-  <!-- Bottom Button Row -->
-  <div class="bottom-buttons" id="bottomButtons">
-    <button class="plan-button" id="tryJewelsBtn" onclick="window.location.href='https://jewels-ai.github.io/Jewellery_Demo/'">
-      🌟 Try on Jewellery
-    </button>
+  <!-- Try on Jewellery (Bottom Left) -->
+  <button class="plan-button" id="tryJewelsBtn" onclick="window.location.href='https://jewels-ai.github.io/Jewellery_Demo/'">
+    🌟 Try on Jewellery
+  </button>
 
-    <button class="plan-button" id="savingsBtn" onclick="window.open('https://jewels-ai.github.io/savings-plan/')">
-      💰 Savings Plan
-    </button>
-  </div>
+  <!-- Savings Plan (Bottom Center) -->
+  <button class="plan-button" id="savingsBtn" onclick="window.open('https://jewels-ai.github.io/savings-plan/')">
+    💰 Savings Plan
+  </button>
 
-  <!-- 📍 Location Top Right -->
+  <!-- Location (Top Right) -->
   <button class="plan-button" id="locationBtn" onclick="window.open('https://maps.google.com/?q=Your+Store+Location')">
     📍 Location
   </button>
@@ -189,7 +191,8 @@
     const videoEl = document.querySelector('#plan1Video');
 
     const toggleButton = document.querySelector('#toggleButton');
-    const bottomButtons = document.querySelector('#bottomButtons');
+    const tryJewelsBtn = document.querySelector('#tryJewelsBtn');
+    const savingsBtn = document.querySelector('#savingsBtn');
     const locationBtn = document.querySelector('#locationBtn');
     const whatsappBtn = document.querySelector('#whatsappBtn');
     const logo = document.querySelector('#logo');
@@ -199,7 +202,7 @@
 
     // ✅ Show elements when target found
     target.addEventListener('targetFound', () => {
-      [toggleButton, bottomButtons, locationBtn, whatsappBtn, logo].forEach(el => {
+      [toggleButton, tryJewelsBtn, savingsBtn, locationBtn, whatsappBtn, logo].forEach(el => {
         el.style.opacity = '1';
         el.style.pointerEvents = 'auto';
       });
@@ -207,7 +210,7 @@
 
     // ❌ Hide elements when target lost
     target.addEventListener('targetLost', () => {
-      [toggleButton, bottomButtons, locationBtn, whatsappBtn, logo].forEach(el => {
+      [toggleButton, tryJewelsBtn, savingsBtn, locationBtn, whatsappBtn, logo].forEach(el => {
         el.style.opacity = '0';
         el.style.pointerEvents = 'none';
       });
